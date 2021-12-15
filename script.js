@@ -1,9 +1,6 @@
 var box = document.querySelector(".main")
-var rect = document.querySelector(".rectangle")
+var ball = document.querySelector(".rectangle")
 var brick  = document.querySelector(".brick")
-//console.log(box, rect);
-
-
 // function addEventListener(typeofevent, callingfunction) {
 //     if (typeofevent == "mousemove") {
 //         Event
@@ -21,20 +18,27 @@ window.addEventListener("keydown", function(e) {
 
     // console.log(box.getBoundingClientRect());
     // if (e.clientY < (bottomBoundry - 100) && e.clientX < (rightBoundry - 100)) {
-    //     rect.style.left = x + "px"
-    //     rect.style.top = y + "px"
+    //     ball.style.left = x + "px"
+    //     ball.style.top = y + "px"
     // }
     //console.log(e.key)
-   
     if (e.key==="ArrowRight") {
-        
-        brick.style.left= (x++)*100 + "px"
-        console.log(brick.style.left) 
+        if(x<50){
+            brick.style.left= (++x)*10 + "px"
+        } 
     }
     if (e.key==="ArrowLeft") {
-        
-        brick.style.left = (x--)*10 + "px" 
-        console.log(brick.style.left)
-    }
-  
+        if(x>0){
+            brick.style.left = (--x)*10 + "px" 
+        }  
+    } 
 })
+function calc() {
+         var x =brick.offsetLeft-ball.offsetLeft;
+         if((x <=100 && x>= -15)&& ball.offsetTop>=350 ){
+           // console.log(ball.offsetLeft - brick.offsetLeft)
+                alert("its a hit")
+        }
+        console.log((x <=100 && x>= -15)&& ball.offsetTop>=350)
+}
+setInterval(calc , 100);
