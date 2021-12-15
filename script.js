@@ -39,6 +39,6 @@ function calc() {
            // console.log(ball.offsetLeft - brick.offsetLeft)
                 alert("its a hit")
         }
-        console.log((x <=100 && x>= -15)&& ball.offsetTop>=350)
+        console.log((x <=30 && x>= -70)&& ball.offsetTop>=350)
 }
 setInterval(calc , 100);
